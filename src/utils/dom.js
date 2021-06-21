@@ -1,3 +1,5 @@
+import { calculateResult } from './play.js';
+
 export function initDOM() {
   const findLocationButton = document.getElementById('find-location');
   const departureStationInput = document.getElementById('departure-station');
@@ -21,4 +23,15 @@ export function getRadiochecked() {
     }
   }
   return undefined;
+}
+
+export function renderResult(path) {
+  const distanceResult = document.getElementById('distance-result');
+  const timeResult = document.getElementById('time-result');
+  const routeResult = document.getElementById('route-result');
+
+  const { sumDistance, sumTime } = calculateResult(path);
+  distanceResult.innerHTML = `${sumDistance}km`;
+  timeResult.innerHTML = `${sumTime}분`;
+  routeResult.innerHTML = path.join('➡');
 }
