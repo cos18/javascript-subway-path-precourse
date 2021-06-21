@@ -1,4 +1,5 @@
-import { station, timeGraph } from './data.js';
+import { station, distanceGraph, timeGraph } from './data.js';
+import { getRadiochecked } from './dom.js';
 
 export function checkInputVaild(dom) {
   const { departureStationInput, arrivalStationInput } = dom;
@@ -12,9 +13,15 @@ export function checkInputVaild(dom) {
 
 export function checkShortestPath(dom) {
   const { departureStationInput, arrivalStationInput } = dom;
-  const path = timeGraph.findShortestPath(departureStationInput.value, arrivalStationInput.value);
+  let path;
+  if (getRadiochecked() === 'distance') {
+    path = distanceGraph.findShortestPath(departureStationInput.value, arrivalStationInput.value);
+  } else {
+    path = timeGraph.findShortestPath(departureStationInput.value, arrivalStationInput.value);
+  }
   if (!path) {
     return false;
   }
+  // renderResult(path);
   return true;
 }

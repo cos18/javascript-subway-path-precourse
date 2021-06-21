@@ -1,4 +1,4 @@
-import initDOM from './utils/dom.js';
+import { initDOM } from './utils/dom.js';
 import { checkInputVaild, checkShortestPath } from './utils/play.js';
 
 function SubwayPath() {
