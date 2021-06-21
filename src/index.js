@@ -1,12 +1,12 @@
 import initDOM from './utils/dom.js';
-import checkInputVaild from './utils/check.js';
+import { checkInputVaild, checkShortestPath } from './utils/play.js';
 
 function SubwayPath() {
   const dom = initDOM();
 
   function onFindLocationClicked() {
-    if (!checkInputVaild(dom.departureStationInput.value, dom.arrivalStationInput.value)) {
-      alert('🚨 입력이 잘못되었습니다 🚨');
+    if (!checkInputVaild(dom) || !checkShortestPath(dom)) {
+      alert('🚨 입력이 잘못되었거나 경로를 찾을 수 없습니다 🚨');
       return;
     }
     dom.resultContainer.style.visibility = 'visible';

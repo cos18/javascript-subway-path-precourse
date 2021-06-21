@@ -4,5 +4,10 @@ export default function initDOM() {
   const arrivalStationInput = document.getElementById('arrival-station');
   const resultContainer = document.getElementById('result-container');
 
-  return { findLocationButton, departureStationInput, arrivalStationInput, resultContainer };
+  return {
+    findLocationButton,
+    departureStationInput,
+    arrivalStationInput,
+    resultContainer,
+  };
 }
