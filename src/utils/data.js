@@ -1,4 +1,4 @@
-import Dijkstra from './utils/Dijkstra.js';
+import Dijkstra from './Dijkstra.js';
 
 export const greenLine = [
   {
